@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-//tutorial 5
+//tutorial 5 part 1
 void main() {
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +12,12 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('My application'),
+        ),
+        body: Center(
+          child: Text(
+            "Hello World",
+            style: TextStyle(fontSize: 20.0, color: Colors.blue),
+          ),
         ),
       ),
     );
