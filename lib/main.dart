@@ -1,6 +1,9 @@
+import 'package:first_project/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 
-//tutorial 10
+import 'screens/home_page.dart';
+
+//tutorial 11
 void main() {
   runApp(MyApp());
 }
@@ -9,67 +12,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "flutter app",
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int count = 0;
-
-  void increment() {
-    setState(() {
-      count = count + 1;
-      print(count);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("title1"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'this is text 1',
-              style: TextStyle(
-                fontSize: 25.0,
-              ),
-            ),
-            Text(
-              '$count',
-              style: Theme.of(context).textTheme.display1,
-            )
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: increment,
-      ),
+      home: HomePage(title: 'title1'),
+      routes: <String, WidgetBuilder>{
+        '/first': (context) => HomePage(),
+        '/second': (context) => SecondScreen("Second Screen"),
+      },
     );
   }
 }
 
 
-//since we use stateless widget when button pressed it will not show the updated value since it stateless 
 
-// class HomePage extends StatelessWidget {
+
+
+// //tutorial 10
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: "flutter app",
+//       home: HomePage(),
+//     );
+//   }
+// }
+
+// class HomePage extends StatefulWidget {
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
 //   int count = 0;
 
 //   void increment() {
-//     count = count + 1;
-//     print(count);
+//     setState(() {
+//       count = count + 1;
+//       print(count);
+//     });
 //   }
 
 //   @override
@@ -102,6 +87,48 @@ class _HomePageState extends State<HomePage> {
 //     );
 //   }
 // }
+
+
+// //since we use stateless widget when button pressed it will not show the updated value since it stateless 
+
+// // class HomePage extends StatelessWidget {
+// //   int count = 0;
+
+// //   void increment() {
+// //     count = count + 1;
+// //     print(count);
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(
+// //         title: Text("title1"),
+// //       ),
+// //       body: Center(
+// //         child: Column(
+// //           mainAxisAlignment: MainAxisAlignment.center,
+// //           children: [
+// //             Text(
+// //               'this is text 1',
+// //               style: TextStyle(
+// //                 fontSize: 25.0,
+// //               ),
+// //             ),
+// //             Text(
+// //               '$count',
+// //               style: Theme.of(context).textTheme.display1,
+// //             )
+// //           ],
+// //         ),
+// //       ),
+// //       floatingActionButton: FloatingActionButton(
+// //         child: Icon(Icons.add),
+// //         onPressed: increment,
+// //       ),
+// //     );
+// //   }
+// // }
 
 // //tutorial 9
 // void main() {
