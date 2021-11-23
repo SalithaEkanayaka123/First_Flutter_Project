@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//tutorial 9
+//tutorial 10
 void main() {
   runApp(MyApp());
 }
@@ -9,86 +9,189 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.orange,
+      title: "flutter app",
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int count = 0;
+
+  void increment() {
+    setState(() {
+      count = count + 1;
+      print(count);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("title1"),
       ),
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('My application'),
-          ),
-          // body: Container(
-          //   width: double.infinity,
-          //   child: Column(
-          //     // mainAxisAlignment: MainAxisAlignment.center,//center the child elements in the main axisis
-          //     mainAxisAlignment:
-          //         MainAxisAlignment.spaceEvenly, //space between children
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          //       Text(
-          //         "value1",
-          //         style: TextStyle(color: Colors.blueAccent),
-          //       ),
-          //       Text(
-          //         "value2",
-          //         style: TextStyle(color: Colors.blueAccent),
-          //       ),
-          //       Text(
-          //         "value3",
-          //         style: TextStyle(color: Colors.blueAccent),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          body: Container(
-            //width: double.infinity,
-            height: double.infinity,
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment
-              //     .center, //center the child elements in the main axisis
-              // // mainAxisAlignment:
-              // //     MainAxisAlignment.spaceEvenly, //space between children
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "value1",
-                  style: TextStyle(color: Colors.blueAccent),
-                ),
-                Text(
-                  "value2",
-                  style: TextStyle(color: Colors.blueAccent),
-                ),
-                Text(
-                  "value3",
-                  style: TextStyle(color: Colors.blueAccent),
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "value4",
-                      style: TextStyle(color: Colors.blueAccent),
-                    ),
-                    Text(
-                      "value5",
-                      style: TextStyle(color: Colors.blueAccent),
-                    ),
-                    Text(
-                      "value6",
-                      style: TextStyle(color: Colors.blueAccent),
-                    ),
-                  ],
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'this is text 1',
+              style: TextStyle(
+                fontSize: 25.0,
+              ),
             ),
-          ),
+            Text(
+              '$count',
+              style: Theme.of(context).textTheme.display1,
+            )
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: increment,
       ),
     );
   }
 }
+
+
+//since we use stateless widget when button pressed it will not show the updated value since it stateless 
+
+// class HomePage extends StatelessWidget {
+//   int count = 0;
+
+//   void increment() {
+//     count = count + 1;
+//     print(count);
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("title1"),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text(
+//               'this is text 1',
+//               style: TextStyle(
+//                 fontSize: 25.0,
+//               ),
+//             ),
+//             Text(
+//               '$count',
+//               style: Theme.of(context).textTheme.display1,
+//             )
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         child: Icon(Icons.add),
+//         onPressed: increment,
+//       ),
+//     );
+//   }
+// }
+
+// //tutorial 9
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         brightness: Brightness.light,
+//         primaryColor: Colors.orange,
+//       ),
+//       home: DefaultTabController(
+//         length: 3,
+//         child: Scaffold(
+//           appBar: AppBar(
+//             title: Text('My application'),
+//           ),
+//           // body: Container(
+//           //   width: double.infinity,
+//           //   child: Column(
+//           //     // mainAxisAlignment: MainAxisAlignment.center,//center the child elements in the main axisis
+//           //     mainAxisAlignment:
+//           //         MainAxisAlignment.spaceEvenly, //space between children
+//           //     crossAxisAlignment: CrossAxisAlignment.center,
+//           //     children: [
+//           //       Text(
+//           //         "value1",
+//           //         style: TextStyle(color: Colors.blueAccent),
+//           //       ),
+//           //       Text(
+//           //         "value2",
+//           //         style: TextStyle(color: Colors.blueAccent),
+//           //       ),
+//           //       Text(
+//           //         "value3",
+//           //         style: TextStyle(color: Colors.blueAccent),
+//           //       ),
+//           //     ],
+//           //   ),
+//           // ),
+//           body: Container(
+//             //width: double.infinity,
+//             height: double.infinity,
+//             child: Row(
+//               // mainAxisAlignment: MainAxisAlignment
+//               //     .center, //center the child elements in the main axisis
+//               // // mainAxisAlignment:
+//               // //     MainAxisAlignment.spaceEvenly, //space between children
+//               // crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                 Text(
+//                   "value1",
+//                   style: TextStyle(color: Colors.blueAccent),
+//                 ),
+//                 Text(
+//                   "value2",
+//                   style: TextStyle(color: Colors.blueAccent),
+//                 ),
+//                 Text(
+//                   "value3",
+//                   style: TextStyle(color: Colors.blueAccent),
+//                 ),
+//                 Column(
+//                   children: [
+//                     Text(
+//                       "value4",
+//                       style: TextStyle(color: Colors.blueAccent),
+//                     ),
+//                     Text(
+//                       "value5",
+//                       style: TextStyle(color: Colors.blueAccent),
+//                     ),
+//                     Text(
+//                       "value6",
+//                       style: TextStyle(color: Colors.blueAccent),
+//                     ),
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 
